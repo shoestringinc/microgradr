@@ -1,0 +1,18 @@
+[package]
+name = "microgradr"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+burn = { version = "0.15.0", features = ["ndarray", "autodiff"] }
+burn-ndarray = "0.16.0"
+ndarray = "0.16.1"
+plotters = "0.3.7"
+rand = "0.8.5"
+rand_distr = "0.4.3"
+
+[dependencies.uuid]
+version = "1.11.0"
+features = [
+    "v4",    
+]
