@@ -18,7 +18,7 @@ The challenge was to demonstrate the following:
 - code has to be written in functional style (so that Clojure and Scala guys like it).
 - code looks pretty in the first uncut version itself!
 - If possible, lifetime annotations should not be sticking all over!
-- Our engine can be maintained by our juniour folks.
+- The engine can be hacked upon by our juniour folks.
 
 If the challenge could be met than everyone decided we will switch over to Rust for everything and not just our tooling and infrastructure level software.
 
@@ -153,4 +153,5 @@ Lots of reorgnization and refactoring can be done including separate test folder
 
 ### License
 
-MIT
+MIT 
+See the LICENSE file for more info.
