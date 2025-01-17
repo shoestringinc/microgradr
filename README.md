@@ -124,7 +124,7 @@ let ys = xs.mapv(f);
 plot_to_file(&xs, &ys, "plot.png");
 ```
 
-Open the files in any rendering app. We use `Preview` on OSX. `Preview` automatically re-renders as the graph changes.
+Open the files in any rendering app. We use `Preview` on `osx`. `Preview` automatically re-renders as the graph changes.
 
 ### Graph Visualization
 
