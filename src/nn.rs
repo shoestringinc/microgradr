@@ -1,5 +1,7 @@
 #![allow(unused)]
 
+// Has both nn.py equivalent as well as simple wrappers over Burn lib.
+
 use std::collections::VecDeque;
 
 use burn::backend::{ndarray::NdArrayDevice, Autodiff, NdArray};
@@ -163,28 +165,3 @@ impl MLP {
         result
     }
 }
-
-/*
-Example code:
-
-    let device = NdArrayDevice::Cpu;
-    let x = Tensor::<Bck, 1>::from_data([2.0], &device).require_grad();
-    let y = x.clone().powf_scalar(2.0);
-    let loss = y.sum();
-    let mut gradients = loss.backward();
-    let x_grad = x.grad(&gradients).unwrap();
-    dbg!(&x_grad);
-    let v = x_grad.to_data();
-    let res = v.to_vec::<f64>().unwrap();
-    println!("{:?}", res);
-
-Better stuff:
-    let device = NdArrayDevice::Cpu;
-    let x = Tensor::<Bck, 1>::from_data([2.0], &device).require_grad();
-    let y = x.clone().powf_scalar(2.0);
-    let mut gradients = y.backward();
-    let x_grad = x.grad(&gradients).unwrap();
-    println!("{}", x_grad.into_scalar());
-
-
- */

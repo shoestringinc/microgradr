@@ -26,7 +26,6 @@ pub fn plot_to_file(xs: &Array1<f64>, ys: &Array1<f64>, file_name: &str) {
         .margin(20)
         .x_label_area_size(20)
         .y_label_area_size(20)
-        // .build_cartesian_2d(xs[0]..(xs[xs.len()-1] + 0.1), (ys[ys.len()-1])..(ys[0]+0.1))
         .build_cartesian_2d(xrange, yrange)
         .unwrap();
 

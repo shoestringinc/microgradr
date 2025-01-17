@@ -245,6 +245,12 @@ fn ex12() {
     println!("ngrad = {}", n_grad);
 }
 
+// These can be extracted to be run as integration test. 
+// These are the two test that Andrej has put in test_engine.py
+// Instead of PyTorch we have used Burn.
+// They give identical results!
+// Burn code can be improved :-)
+
 fn sanity_check() {
     let x = Var::new(-4.0, "");
     let a = 2.0_f64 * &x;
@@ -338,6 +344,3 @@ pub fn main() {
     println!("Notebook 3");
     test_more_ops();
 }
-
-// YT: 1:28
-// VLC: 56.05

@@ -16,7 +16,6 @@ fn trace(root: &Var) -> (HashSet<(u128, u128)>, HashMap<u128, Var>) {
 
     fn build(var: &Var, edges: &mut HashSet<(u128, u128)>, nodes: &mut HashMap<u128, Var>) {
         let uid = var.uid();
-        // let children = &var.value.borrow().children;
         let children = &var.children();
         if !nodes.contains_key(&uid) {
             nodes.insert(uid, var.clone());

@@ -19,8 +19,6 @@ fn uuid_to_u128() -> u128 {
 
 #[derive(Debug)]
 struct Value {
-    // also uid is used for giving node ids in graphviz
-    // had to use this because we can't have Hash, Eq out of f64, if used for Set operations
     pub uid: u128, 
     pub data: f64,
     pub grad: f64,          // impact on the say loss function by default is 0.0
@@ -125,7 +123,6 @@ impl Var {
     }
 
     pub fn tanh(&self) -> Self {
-        // let x = self.value.borrow().data;
         let x = self.data();
 
         // We can simply calculate as follows:
@@ -178,28 +175,7 @@ impl Var {
         topo
     }
 
-    // pub fn reset_grads(&self) {
-    //     let topo = self.topological_sort();
-    //     for node in topo.iter() {
-    //         node.set_grad(0.);
-    //     }
-    // }
-
     pub fn back_propagate(&self) {
-        // let mut topo = vec![];
-        // let mut visited = HashSet::new();
-
-        // fn build_topo(v: &Var, visited: &mut HashSet<u128>, topo: &mut Vec<Var>) {
-        //    if !visited.contains(&v.uid()) {
-        //         visited.insert(v.uid());
-        //         for child in v.children() {
-        //             build_topo(&child, visited, topo);
-        //         }
-        //         topo.push(v.clone());
-        //    }
-        // }
-
-        // build_topo(self, &mut visited, &mut topo);
 
         let topo = self.topological_sort();
 
@@ -256,7 +232,6 @@ impl Var {
                 let child = &children[0];
                 let n = &children[1];
                 let power = n.data();
-                // println!("power: {}", power);
                 // f = x**n
                 // df/dx = n * (x ** (n-1))
                 let local_grad = power * (child.data().powf(power - 1.));
@@ -353,15 +328,6 @@ impl Div for &Var {
         let rhs1 = rhs.pow(-1.);
         let mut v = self * &rhs1;
         v
-        // let second = rhs.value.borrow();
-        // let data = first.data * second.data;
-        // let mut v = Value::new(data, " ");
-        // v.children = vec![self.clone(), rhs.clone()];
-        // v.op = "*".into();
-        // v.label = format!("({}{}{})", first.label, "*", second.label);
-        // Var {
-        //     value: Rc::new(RefCell::new(v)),
-        // }
         
     }
     

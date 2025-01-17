@@ -268,5 +268,3 @@ pub fn main() {
     println!("Notebook 4");
     ex12();
 }
-
-// VLC: 37:48
