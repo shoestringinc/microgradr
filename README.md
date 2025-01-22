@@ -4,6 +4,8 @@
 
 This is a rewrite of Andrej Karpathy's Autograd engine in Rust programming language.
 
+Autograd is short for automatic differentiation which is crucial for training neural networks. The engine creates computation graph recording dependencies and computes gradients by traversing graph in reverse. The gradients are then used to update model parameters that will used by neural network to generate outputs in its forward pass.
+
 Original repo is at:  
 <https://github.com/karpathy/micrograd>
 
